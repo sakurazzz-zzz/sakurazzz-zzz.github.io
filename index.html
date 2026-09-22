@@ -133,6 +133,33 @@
       margin: -14px 0 22px;
     }
 
+    /* 校外访问 / 校内网接入 */
+    .btn-join {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 14px 26px;
+      border-radius: 999px;
+      box-shadow: 0 10px 24px rgba(14, 165, 233, 0.28);
+      transition: transform .15s, box-shadow .15s, background .15s;
+    }
+    .btn-join:hover {
+      transform: translateY(-2px);
+      background: #0284c7;
+      box-shadow: 0 14px 30px rgba(14, 165, 233, 0.34);
+    }
+    .vpn-alt { margin-top: 18px; }
+    .vpn-tip {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      max-width: 580px;
+    }
+
     /* Contact */
     .contact-links {
       display: flex;
@@ -221,7 +248,7 @@
     <!-- Books -->
     <section id="books">
       <h2>电子书入口 <span class="bubble">◌</span></h2>
-      <p class="section-note">浙大图书馆已订购的正版电子书，校园网环境下点开即用。</p>
+      <p class="section-note">浙大图书馆已订购的正版电子书，校园网内点开即用；不在校园网时，先用页面底部的「<a href="#vpn">校外访问</a>」接入校内网。</p>
       <div class="grid">
         <a class="card" href="https://libdb.zju.edu.cn/s/lib/libtb/show/466" target="_blank" rel="noopener">
           <h3>📖 超星数字图书馆</h3>
@@ -249,6 +276,20 @@
         <a href="https://github.com/sakurazzz-zzz" target="_blank" rel="noopener">🐙 GitHub</a>
       </div>
     </section>
+    <!-- VPN / 校内网接入 -->
+    <section id="vpn">
+      <h2>校外访问 <span class="bubble">◌</span></h2>
+      <p class="section-note">在宿舍或校外时，先从这里接入浙大校内网，再回来打开上面的电子书资源。</p>
+      <a class="btn-join" href="https://webvpn.zju.edu.cn/" target="_blank" rel="noopener">
+        🌐 一键接入浙大校内网 · WebVPN
+      </a>
+      <div class="contact-links vpn-alt">
+        <a href="https://ds.carsi.edu.cn/" target="_blank" rel="noopener">🔑 CARSI 统一身份认证</a>
+        <a href="http://rvpn.zju.edu.cn/" target="_blank" rel="noopener">🔌 RVPN（备用）</a>
+      </div>
+      <p class="vpn-tip">用统一身份认证 / VPN 账号登录后即可访问图书馆全部电子资源，手机、平板都能用，不用装客户端。账号密码只在学校官方页面输入，本页不保存任何信息。接入后建议直接回到上面的「电子书入口」。</p>
+    </section>
+
   </main>
 
   <footer>
