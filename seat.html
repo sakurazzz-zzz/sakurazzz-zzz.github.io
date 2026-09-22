@@ -364,8 +364,9 @@
       <h2>规则速查 <span class="bubble">◌</span></h2>
       <div class="card">
         <ul class="rules">
-          <li><strong>每天 07:00 开放</strong>当日和次日的座位预约（页面上的时间可自己改）。</li>
-          <li><strong>当日预约即时生效；约次日则次日开馆生效。</strong>生效前取消不算违约，生效后得在 <strong>30 分钟内</strong>刷卡入馆。</li>
+          <li><strong>每天 07:00 开放预约</strong>（时间可在上面自己改）。</li>
+          <li><strong>能约到哪一天，以系统里日期选择器能选到的为准。</strong>2021 年的官方细则写的是「当日 + 次日」，但系统 2025 年 1 月升级过、各馆也可能不同，我不敢替你打包票。</li>
+          <li><strong>当日预约即时生效；</strong>生效后要在 <strong>30 分钟内</strong>刷卡入馆，否则预约自动失效并记 1 次违约；生效前取消不算违约。</li>
           <li><strong>中途出馆</strong>座位保留 20 分钟；饭点时段保留 1 小时。</li>
           <li><strong>违约 3 次</strong>冻结预约资格一周。</li>
           <li><strong>主馆 8:30-22:30</strong>开放（二楼 24 小时自习空间除外）；馆内还有少量不用预约、先到先得的自由阅览桌。</li>
@@ -506,13 +507,13 @@
         pad(now.getHours()) + ":" + pad(now.getMinutes()) + ":" + pad(now.getSeconds());
 
       if (phase.open) {
-        cdLabel.textContent = "现在可以约今天 / 明天的座位";
+        cdLabel.textContent = "现在正在开放预约";
         var left = phase.target.getTime() - now.getTime();
         var h = Math.floor(left / 3600000);
         var m = Math.floor((left % 3600000) / 60000);
         var s = Math.floor((left % 60000) / 1000);
         cdTime.textContent = pad(h) + ":" + pad(m) + ":" + pad(s);
-        cdState.textContent = "预约通道开放中（现在是 " + clock + "）· 距离明天重置还有上面这点时间";
+        cdState.textContent = "现在 " + clock + " · 上面数字是距明天重置的时间 · 能约哪几天以系统为准";
         cdState.classList.add("open");
       } else {
         cdLabel.textContent = "距离开放预约还有";
