@@ -124,6 +124,15 @@
       padding: 3px 10px;
     }
 
+    /* 资料 / 电子书入口 */
+    a.card { display: block; color: var(--text); }
+    a.card:hover { border-color: var(--accent); }
+    .section-note {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin: -14px 0 22px;
+    }
+
     /* Contact */
     .contact-links {
       display: flex;
@@ -167,6 +176,7 @@
       <ul class="nav-links">
         <li><a href="#about">关于</a></li>
         <li><a href="#work">作品</a></li>
+        <li><a href="#books">资料</a></li>
         <li><a href="#contact">联系</a></li>
       </ul>
     </div>
@@ -205,6 +215,29 @@
           <p>一句话描述这个项目是干嘛的。</p>
           <span class="tag">待补充</span>
         </div>
+      </div>
+    </section>
+
+    <!-- Books -->
+    <section id="books">
+      <h2>电子书入口 <span class="bubble">◌</span></h2>
+      <p class="section-note">浙大图书馆已订购的正版电子书，校园网环境下点开即用。</p>
+      <div class="grid">
+        <a class="card" href="https://libdb.zju.edu.cn/s/lib/libtb/show/466" target="_blank" rel="noopener">
+          <h3>📖 超星数字图书馆</h3>
+          <p>中文电子书主力库，几十万种。教材、专著基本都能找到，可在线阅读，也能按章节下载。</p>
+          <span class="tag">馆藏电子书</span>
+        </a>
+        <a class="card" href="https://libdb.zju.edu.cn/s/lib/libtb/show/531" target="_blank" rel="noopener">
+          <h3>🔍 读秀学术搜索</h3>
+          <p>支持图书全文检索，能直接定位到「哪本书第几页讲了什么」，比翻整本 PDF 快得多。</p>
+          <span class="tag">全文检索</span>
+        </a>
+        <a class="card" href="https://libweb.zju.edu.cn/" target="_blank" rel="noopener">
+          <h3>📚 浙大图书馆</h3>
+          <p>借纸质书、查看全部已订购数据库和电子资源的总入口。</p>
+          <span class="tag">总入口</span>
+        </a>
       </div>
     </section>
 
