@@ -273,7 +273,7 @@
   <main class="container">
     <div class="page-title">
       <h1>图书馆助手 · 主馆 🐟</h1>
-      <p>起不来也别慌：这个页面负责「几点能约」「一键跳过去」「座位号复制好」「到点提醒你」。真正的选座和签到还是在图书馆系统里，用你自己的浙大通行证登录。</p>
+      <p>起不来也别慌：这个页面负责「几点能约」「一键跳过去」「座位号复制好」「到点提醒你」。真正的选座和签到还是在图书馆系统里，用你自己的浙大通行证登录。<br />⚠️ 主馆二楼全天学习空间（24 小时）<strong>只能约当天</strong>，别白等前一天晚上。</p>
     </div>
 
     <!-- 开放倒计时 -->
@@ -330,7 +330,7 @@
         </div>
         <div class="timer-card">
           <h3>🚶 临时离座</h3>
-          <p class="hint">中途出馆座位会保留 20 分钟；午餐 10:30-12:30、晚餐 16:30-18:00 出馆可保留 1 小时。</p>
+          <p class="hint">中途刷卡出馆座位保留 20 分钟；午餐 10:30-13:00、晚餐 16:30-19:00 出馆保留 1 小时，过时自动释放。</p>
           <div class="timer-display" id="awayDisplay">20:00</div>
           <div class="timer-actions">
             <button class="btn primary" id="away20">离座 20 分钟</button>
@@ -364,16 +364,17 @@
       <h2>规则速查 <span class="bubble">◌</span></h2>
       <div class="card">
         <ul class="rules">
-          <li><strong>每天 07:00 开放预约</strong>（时间可在上面自己改）。</li>
-          <li><strong>能约到哪一天，以系统里日期选择器能选到的为准。</strong>2021 年的官方细则写的是「当日 + 次日」，但系统 2025 年 1 月升级过、各馆也可能不同，我不敢替你打包票。</li>
-          <li><strong>当日预约即时生效；</strong>生效后要在 <strong>30 分钟内</strong>刷卡入馆，否则预约自动失效并记 1 次违约；生效前取消不算违约。</li>
-          <li><strong>中途出馆</strong>座位保留 20 分钟；饭点时段保留 1 小时。</li>
-          <li><strong>违约 3 次</strong>冻结预约资格一周。</li>
-          <li><strong>主馆 8:30-22:30</strong>开放（二楼 24 小时自习空间除外）；馆内还有少量不用预约、先到先得的自由阅览桌。</li>
+          <li><strong>可预约时间：当日及次日 8:30-22:30</strong>，每天早上 <strong>7:00</strong> 放出次日名额。</li>
+          <li>⚠️ <strong>主馆二楼全天学习空间（24 小时）只能约当天</strong>；次日 0 点后还想继续坐，要重新扫码预约。</li>
+          <li><strong>当日预约即时生效</strong>，当天有效；约次日则次日 8:30 生效、全日段有效。生效后要在 <strong>30 分钟内</strong>刷卡入馆，否则预约自动失效并记 1 次违约。</li>
+          <li>每人每天<strong>只能取消一次</strong>「已生效但未签到」的预约。</li>
+          <li>中途刷卡出馆座位保留 <strong>20 分钟</strong>；午餐 10:30-13:00、晚餐 16:30-19:00 出馆保留 <strong>1 小时</strong>，过时自动释放。</li>
+          <li><strong>违约累计 3 次</strong>冻结预约资格一周，每年首日自动清零。离馆不再坐就点一下「提前离座」，把座位让出来。</li>
+          <li><strong>主馆 8:30-22:30</strong>开放（二楼全天学习空间 24 小时不打烊）；馆内还有少量不用预约、先到先得的自由阅览桌。</li>
           <li>主馆、基础馆一二楼有墨水屏，现场扫二维码也能直接选座签到 —— 没抢到时可以当捡漏备用。</li>
         </ul>
         <div class="disclaimer">
-          ⚠️ 这些是图书馆公开的座位预约规则整理，各馆/各时段可能微调，<strong>以预约系统里的实际提示为准</strong>。<br />
+          ⚠️ 以上是预约系统内现行《座位预约规则》的原文整理，各馆各时段可能微调，<strong>以系统里的实际提示为准</strong>。<br />
           本页面只做提醒和跳转，不代替你登录、不自动提交任何操作。
         </div>
       </div>
@@ -513,16 +514,16 @@
         var m = Math.floor((left % 3600000) / 60000);
         var s = Math.floor((left % 60000) / 1000);
         cdTime.textContent = pad(h) + ":" + pad(m) + ":" + pad(s);
-        cdState.textContent = "现在 " + clock + " · 上面数字是距明天重置的时间 · 能约哪几天以系统为准";
+        cdState.textContent = "现在 " + clock + " · 上面数字是距明天 " + state.openTime + " 重置的时间";
         cdState.classList.add("open");
       } else {
-        cdLabel.textContent = "距离开放预约还有";
+        cdLabel.textContent = "距离开放次日预约还有";
         var left2 = phase.target.getTime() - now.getTime();
         var h2 = Math.floor(left2 / 3600000);
         var m2 = Math.floor((left2 % 3600000) / 60000);
         var s2 = Math.floor((left2 % 60000) / 1000);
         cdTime.textContent = pad(h2) + ":" + pad(m2) + ":" + pad(s2);
-        cdState.textContent = "现在是 " + clock + " · " + state.openTime + " 一到就可以约今天和明天的座位";
+        cdState.textContent = "现在是 " + clock + " · " + state.openTime + " 到点后会放出次日名额（当日座位 8:30 起可约）";
         cdState.classList.remove("open");
       }
     }
