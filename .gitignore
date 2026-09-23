@@ -2,7 +2,15 @@
 tangxindun.png
 wechat_*.png
 
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 个人小工具，不上公开仓库
+seat_watch.py
+
 # 助手 persona 档案，不提交
 IDENTITY.md
 SOUL.md
 USER.md
+.openbitfun/
